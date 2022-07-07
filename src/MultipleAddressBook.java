@@ -1,6 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class MultipleAddressBook {
 
@@ -13,7 +11,7 @@ public class MultipleAddressBook {
         System.out.println("Welcome To address book program");
         boolean condition = true;
         while (condition) {
-            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Exit");
+            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Show contacts");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -30,6 +28,9 @@ public class MultipleAddressBook {
                     break;
                 case 5:
                     addMultipleContactsToAddressBook();
+                    break;
+                case 6:
+                    showContactsOfAddressBook();
                     break;
                 default:
                     condition = false;
@@ -102,6 +103,30 @@ public class MultipleAddressBook {
             System.out.println("No address book found with these name");
         } else {
             addressBookSystem.addMultipleContact();
+        }
+    }
+
+    public static void removeDuplicateContactFromAddressBook() {
+        System.out.println("Enter the address book name: ");
+        String bookName = scanner.next();
+        AddressBookSystem book = addressBookClassMap.get(bookName);
+        AddressBookSystem addressBookList = new AddressBookSystem();
+        if (book == null) {
+            System.out.println("No address book found with these name");
+        } else {
+            addressBookSystem.deleteContact();
+        }
+    }
+
+    //Method to show all the contacts of a particular address book without duplicate contact
+    public static void showContactsOfAddressBook() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = addressBookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookSystem.showContacts();
         }
     }
 }
