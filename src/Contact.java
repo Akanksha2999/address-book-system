@@ -101,6 +101,7 @@ public class Contact {
                 ", zipCode='" + zipCode + '\'' +
                 ", emailId='" + emailId + '\'' +
                 '}';
+
     }
 }
 
