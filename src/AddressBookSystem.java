@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookSystem {
 
@@ -128,6 +128,15 @@ public class AddressBookSystem {
         for (int i = 0; i < number; i++) {
             addContact();
             System.out.println(i + 1 + " Contact added Successfully");
+        }
+    }
+
+    public  void showContacts() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Address book is empty");
+        } else {
+            Set<Contact> productSet = addressBook.stream().collect(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(Contact::toString))));
+            productSet.forEach(System.out::println);
         }
     }
 }
