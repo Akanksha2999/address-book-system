@@ -139,4 +139,18 @@ public class AddressBookSystem {
             productSet.forEach(System.out::println);
         }
     }
+
+    //Method to search for desired contact
+    public void searchMethod() {
+        System.out.println("Enter the city or state to search contact ");
+        String input = scanner.next();
+        for (Contact book : addressBook) {
+            if (book.getCity().equals(input) || book.getState().equals(input)) {
+                System.out.println("Matches with city name contact is :" + book);
+            }
+            else {
+                System.out.println("Contact not found");
+            }
+        }
+    }
 }
