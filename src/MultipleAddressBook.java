@@ -11,7 +11,7 @@ public class MultipleAddressBook {
         System.out.println("Welcome To address book program");
         boolean condition = true;
         while (condition) {
-            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Show contacts");
+            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Show contacts\n7 : Search person by city or state");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -31,6 +31,9 @@ public class MultipleAddressBook {
                     break;
                 case 6:
                     showContactsOfAddressBook();
+                    break;
+                case 7:
+                    searchByCityOrState();
                     break;
                 default:
                     condition = false;
@@ -127,6 +130,18 @@ public class MultipleAddressBook {
             System.out.println("No book found with these name");
         } else {
             addressBookSystem.showContacts();
+        }
+    }
+
+    //Method to search contact in address book
+    public static void searchByCityOrState() {
+        System.out.println("Enter the address book name ");
+        String bookName = scanner.next();
+        AddressBookSystem book = addressBookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookSystem.searchMethod();
         }
     }
 }
