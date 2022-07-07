@@ -35,5 +35,6 @@ public class AddressBookSystem {
         contact.setEmailId(scanner.next());
         System.out.println("Contact added successfully");
         return contact;
+
     }
 }
