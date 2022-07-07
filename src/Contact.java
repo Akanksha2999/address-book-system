@@ -88,7 +88,6 @@ public class Contact {
         this.emailId = emailId;
     }
 
-
     @Override
     public String toString() {
         return "Contact{" +

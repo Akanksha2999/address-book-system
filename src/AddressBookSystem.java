@@ -4,29 +4,29 @@ import java.util.Scanner;
 public class AddressBookSystem {
 
     //Scanner to take input from user
-    public static Scanner scanner = new Scanner(System.in);
-    public static ArrayList<Contact> addressBook = new ArrayList<Contact>();
+    public static final Scanner scanner = new Scanner(System.in);
+    public static final ArrayList<Contact> addressBook = new ArrayList<Contact>();
 
     public static void main(String[] args) {
 
         System.out.println("Welcome to the Address Book Program");
-        AddressBookSystem addressBookList = new AddressBookSystem();
-
-        while (true) {
+        AddressBookSystem addressBookSystem = new AddressBookSystem();
+        boolean condition = true;
+        while (condition == true) {
             System.out.println("1.Add contact" + "\n" + "2.Edit contact" + "\n" + "3.Delete contact" + "\n" + "4.Multiple contact");
             int option = scanner.nextInt();
             switch (option) {
                 case 1:
-                    addressBookList.addContact();
+                    addressBookSystem.addContact();
                     break;
                 case 2:
-                    addressBookList.editContact();
+                    addressBookSystem.editContact();
                     break;
                 case 3:
-                    addressBookList.deleteContact();
+                    addressBookSystem.deleteContact();
                     break;
                 case 4:
-                    addressBookList.addMultipleContact();
+                    addressBookSystem.addMultipleContact();
                     break;
                 default:
                     System.out.println("Invalid Input");
