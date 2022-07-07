@@ -5,10 +5,10 @@ public class Contact {
     private String city;
     private String state;
     private int zipCode;
-    private int phoneNumber;
+    private long phoneNumber;
     private String emailId;
 
-    public Contact(String firstName, String lastName, String address, String city, String state, int zipCode, int phoneNumber, String emailId) {
+    public Contact(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String emailId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -72,11 +72,11 @@ public class Contact {
         this.zipCode = zipCode;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -102,5 +102,5 @@ public class Contact {
                 ", emailId='" + emailId + '\'' +
                 '}';
     }
-
 }
+
