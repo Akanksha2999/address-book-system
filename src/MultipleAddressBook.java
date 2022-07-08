@@ -11,7 +11,7 @@ public class MultipleAddressBook {
         System.out.println("Welcome To address book program");
         boolean condition = true;
         while (condition) {
-            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Show contacts\n7 : Search person by city or state");
+            System.out.println("choose options \n1 : Add new addressBook\n2 : Add contact\n3 : Edit contact\n4 : Delete contact\n5 : Add multiple contacts\n6 : Show contacts\n7 : Search person by city or state\n8 : Sort by person name\n9 : exit");
             int choice = scanner.nextInt();
             switch (choice) {
                 case 1:
@@ -35,14 +35,19 @@ public class MultipleAddressBook {
                 case 7:
                     searchByCityOrState();
                     break;
-                default:
+                case 8:
+                    sortingByPersonName();
+                    break;
+                case 9:
                     condition = false;
+                    System.out.println("exit");
+                default:
                     System.out.println("Invalid entry");
             }
         }
     }
 
-    //Method to create new address book with name
+    //Method to print the created new address book with name
     public static void addAddressBook() {
         System.out.println("Creating a new address book\nEnter the address book name: ");
         String addressBookName = scanner.next();
@@ -56,7 +61,7 @@ public class MultipleAddressBook {
         }
     }
 
-    //Method to add contact details to desired address book
+    //Method to print the added contact details to desired address book
     public static void addAddressBookContact() {
         System.out.println("Enter the address book name: ");
         String bookName = scanner.next();
@@ -69,7 +74,7 @@ public class MultipleAddressBook {
         }
     }
 
-    ////Method to edit contact details of desired address book
+    ////Method to print the edited contact details of desired address book
     public static void editAddressBookContact() {
 
         System.out.println("Enter the address book name: ");
@@ -83,7 +88,7 @@ public class MultipleAddressBook {
         }
     }
 
-    //Method to delete contact details of desired address book
+    //Method to print deleted contact details of desired address book
     public static void deleteAddressBookContact() {
         System.out.println("Enter the address book name: ");
         String bookName = scanner.next();
@@ -96,7 +101,7 @@ public class MultipleAddressBook {
         }
     }
 
-    //Method to add multiple contacts to address book
+    //Method to print the multiple contacts to address book
     public static void addMultipleContactsToAddressBook() {
         System.out.println("Enter the address book name: ");
         String bookName = scanner.next();
@@ -106,18 +111,6 @@ public class MultipleAddressBook {
             System.out.println("No address book found with these name");
         } else {
             addressBookSystem.addMultipleContact();
-        }
-    }
-
-    public static void removeDuplicateContactFromAddressBook() {
-        System.out.println("Enter the address book name: ");
-        String bookName = scanner.next();
-        AddressBookSystem book = addressBookClassMap.get(bookName);
-        AddressBookSystem addressBookList = new AddressBookSystem();
-        if (book == null) {
-            System.out.println("No address book found with these name");
-        } else {
-            addressBookSystem.deleteContact();
         }
     }
 
@@ -133,7 +126,7 @@ public class MultipleAddressBook {
         }
     }
 
-    //Method to search contact in address book
+    //Method to print the searched contact in address book
     public static void searchByCityOrState() {
         System.out.println("Enter the address book name ");
         String bookName = scanner.next();
@@ -142,6 +135,18 @@ public class MultipleAddressBook {
             System.out.println("No book found with these name");
         } else {
             addressBookSystem.searchMethod();
+        }
+    }
+
+    //Method to print the sorted contacts according to person name
+    public static void sortingByPersonName() {
+        System.out.println("Enter the AddressBookName ");
+        String bookName = scanner.next();
+        AddressBookSystem book = addressBookClassMap.get(bookName);
+        if (book == null) {
+            System.out.println("No book found with these name");
+        } else {
+            addressBookSystem.sortingByPersonName();
         }
     }
 }

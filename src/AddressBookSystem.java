@@ -153,4 +153,13 @@ public class AddressBookSystem {
             }
         }
     }
+
+    //Method to sort the
+    public void sortingByPersonName() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contacts book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getFirstName)).forEach(System.out::println);
+        }
+    }
 }
