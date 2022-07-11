@@ -131,7 +131,7 @@ public class AddressBookSystem {
         }
     }
 
-    public  void showContacts() {
+    public void showContacts() {
         if (addressBook.isEmpty()) {
             System.out.println("Address book is empty");
         } else {
@@ -147,8 +147,7 @@ public class AddressBookSystem {
         for (Contact book : addressBook) {
             if (book.getCity().equals(input) || book.getState().equals(input)) {
                 System.out.println("Matches with city name contact is :" + book);
-            }
-            else {
+            } else {
                 System.out.println("Contact not found");
             }
         }
@@ -160,6 +159,14 @@ public class AddressBookSystem {
             System.out.println("Contacts book is empty");
         } else {
             addressBook.stream().sorted(Comparator.comparing(Contact::getFirstName)).forEach(System.out::println);
+        }
+    }
+
+    public void sortingByCity() {
+        if (addressBook.isEmpty()) {
+            System.out.println("Contact book is empty");
+        } else {
+            addressBook.stream().sorted(Comparator.comparing(Contact::getCity)).forEach(System.out::println);
         }
     }
 }
