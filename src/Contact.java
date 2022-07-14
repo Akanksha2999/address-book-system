@@ -4,19 +4,20 @@ public class Contact {
     private String address;
     private String city;
     private String state;
+    private String emailId;
     private int zipCode;
     private long phoneNumber;
-    private String emailId;
 
-    public Contact(String firstName, String lastName, String address, String city, String state, int zipCode, long phoneNumber, String emailId) {
+
+    public Contact(String firstName, String lastName, String address, String city, String state, String emailId, int zipCode, long phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.state = state;
+        this.emailId = emailId;
         this.zipCode = zipCode;
         this.phoneNumber = phoneNumber;
-        this.emailId = emailId;
     }
 
 
@@ -64,6 +65,14 @@ public class Contact {
         this.state = state;
     }
 
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
     public int getZipCode() {
         return zipCode;
     }
@@ -78,14 +87,6 @@ public class Contact {
 
     public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getEmailId() {
-        return emailId;
-    }
-
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
     }
 
     @Override

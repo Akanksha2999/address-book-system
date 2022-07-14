@@ -3,9 +3,19 @@ import java.util.stream.Collectors;
 
 public class AddressBookSystem {
 
+    public enum IOService {CONSOLE_IO, FILE_IO, DB_IO, REST_ID}
+
     //Scanner to take input from user
     public static final Scanner scanner = new Scanner(System.in);
     public static final ArrayList<Contact> addressBook = new ArrayList<Contact>();
+    private List<Contact> contactList;
+
+    public AddressBookSystem(List<Contact> contactsList) {
+        this.contactList = contactsList;
+    }
+
+    public AddressBookSystem() {
+    }
 
     public static void main(String[] args) {
 
@@ -53,8 +63,7 @@ public class AddressBookSystem {
         System.out.println("Enter the phone number:");
         details.setPhoneNumber(scanner.nextLong());
 
-        addressBook.add(details);
-        System.out.print(addressBook);
+        contactList.add(new Contact(details.getFirstName(), details.getLastName(), details.getAddress(), details.getCity(), details.getState(),details.getEmailId(), details.getZipCode(), details.getPhoneNumber()));
         System.out.println("Contact added successfully");
     }
 
@@ -170,10 +179,16 @@ public class AddressBookSystem {
         }
     }
 
-    public void countCity() {
-        System.out.println("Enter a city name ");
-        String input = scanner.next();
-        long count = addressBook.stream().filter(city -> city.getCity().equals(input)).count();
-        System.out.println("No of contacts Matched " + input + " city is : " + count);
+    public void writeTheData(AddressBookSystem.IOService ioService) {
+        if (ioService.equals(AddressBookSystem.IOService.CONSOLE_IO))
+            System.out.println("\n writing Employee Payroll Roaster to console \n" + contactList);
+        else if (ioService.equals(AddressBookSystem.IOService.FILE_IO))
+            new AddressBookFileIO().writeData(contactList);
+    }
+
+    public long readContactDetails(AddressBookSystem.IOService ioService) {
+        if (ioService.equals(AddressBookSystem.IOService.FILE_IO))
+            this.contactList = new AddressBookFileIO().readData();
+        return contactList.size();
     }
 }
